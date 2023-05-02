@@ -28,7 +28,7 @@ def add(x: float, y: float) -> float:
 
 def neg(x: float) -> float:
     "$f(x) = -x$"
-    return -x
+    return float(-x)
 
 
 def lt(x: float, y: float) -> float:
@@ -75,7 +75,7 @@ def relu(x: float) -> float:
 
     (See https://en.wikipedia.org/wiki/Rectifier_(neural_networks) .)
     """
-    return max(x, 0)
+    return float(max(x, 0.0))
 
 EPS = 1e-6
 
@@ -92,7 +92,7 @@ def exp(x: float) -> float:
 
 def log_back(x: float, d: float) -> float:
     r"If $f = log$ as above, compute $d \times f'(x)$"
-    return d * log(x)
+    return d * inv(x)
 
 
 def inv(x: float) -> float:
@@ -152,7 +152,6 @@ def zipWith(
          applying fn(x, y) on each pair of elements.
 
     """
-    # TODO: Implement for Task 0.3.
     return lambda ls1, ls2: [fn(*ls) for ls in zip(ls1, ls2)]
 
 
